@@ -1,0 +1,6 @@
+#!/bin/bash
+target=$1
+script=$2
+name=${3-$script}
+scriptcontent="$(cat "$script")"
+xattr -w $name "$scriptcontent" "$target"

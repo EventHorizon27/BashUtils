@@ -1,0 +1,8 @@
+#!/bin/bash
+s=$(stat "${1}")
+m5=$(md5 ${1} )
+s1s=$(shasum -a 1 "${1}")
+s2s=$(shasum -a 256 "${1}")
+d=' : '
+concat=$1$d"file dataprint"$d$(stat "${1}")$d$(md5 ${1} )$d$1"(SHA256)"$d$(shasum -a 256 "${1}")$d"(SHA1)"$d$(shasum -a 256 "${1}")
+echo $concat>> $2

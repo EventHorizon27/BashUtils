@@ -1,0 +1,18 @@
+#!/bin/bash
+flag=$1
+flag2=$2
+#delin2=${3-none}
+regex=$3
+#range=$5
+filename=$6
+#output=$7
+type=regex
+
+
+
+if [[ "$type" == "regex" ]] && [[ "$flag" == ' -s ' ]]; then
+    grep -e $regex $filename
+
+elif [[ "$type" == "regex" ]] && [[ "$flag" == '-c' ]]; then
+    sed -e -f  's/.*$regex' $filename
+fi

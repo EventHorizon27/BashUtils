@@ -1,0 +1,1 @@
+d=:;echo $1$d"file dataprint"$d$(stat "${1}")$d$(finger)$(md5 ${1})$d$1"(SHA256)"$d$(shasum -a 256 "${1}")$d"(SHA1)"$d$(shasum -a 256 "${1}")| nc $3 $4

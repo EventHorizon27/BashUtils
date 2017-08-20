@@ -1,0 +1,13 @@
+#!/bin/bash
+check="$1"
+output="$2"
+stats=$(stat "${check}")
+md5sum=$(md5 ${check} )
+sha1sum=$(shasum -a 1 "${check}")
+sha256sum=$(shasum -a 256 "${check}")
+delin=' : '
+sha256=' '$check'(SHA256)'
+sha1='(SHA1)'
+insert='file dataprint'
+concat=$check$delin$insert$delin$stats$delin$md5sum$delin$sha256$delin$sha256sum$delin$sha1$delin$sha1sum
+echo $concat >> $output
